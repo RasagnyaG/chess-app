@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Chess App',
         home: Scaffold(
-          body: PlayersPage(),
+          body: LandingScreen(),
         ));
   }
 }

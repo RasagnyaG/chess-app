@@ -3,6 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+final player1Controller = TextEditingController();
+final player2Controller = TextEditingController();
+
 class PlayersPage extends StatelessWidget {
   const PlayersPage({super.key});
 
@@ -16,7 +19,7 @@ class PlayersPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-            toolbarHeight: 150,
+            toolbarHeight: 180,
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
@@ -28,12 +31,12 @@ class PlayersPage extends StatelessWidget {
                       fontSize: 30),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 20),
+                  padding: const EdgeInsets.only(top: 15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () => Navigator.of(context).pop(),
                         style: ButtonStyle(
                             backgroundColor:
                                 MaterialStateProperty.all(Colors.red[400])),
@@ -55,10 +58,88 @@ class PlayersPage extends StatelessWidget {
             shadowColor: Colors.transparent,
             centerTitle: true,
             automaticallyImplyLeading: false),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[],
-        ),
+        body: Padding(
+            padding: const EdgeInsets.only(top: 55),
+            child: Table(
+              defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+              columnWidths: const {0: FractionColumnWidth(.15)},
+              children: <TableRow>[
+                TableRow(children: <Widget>[
+                  Container(),
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 15),
+                    child: Center(
+                        child: Text('Player 1',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18))),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 15),
+                    child: Center(
+                        child: Text('Player 2',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18))),
+                  )
+                ]),
+                TableRow(children: <Widget>[
+                  const Center(
+                      child: Text('NAME',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              letterSpacing: 0.1))),
+                  Center(
+                    child: SizedBox(
+                      width: 145,
+                      height: 45,
+                      child: TextField(
+                          decoration: const InputDecoration(
+                              border: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                              filled: true,
+                              fillColor: Colors.white),
+                          controller: player1Controller),
+                    ),
+                  ),
+                  Center(
+                    child: SizedBox(
+                      width: 145,
+                      height: 45,
+                      child: TextField(
+                        decoration: const InputDecoration(
+                            border: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+                            filled: true,
+                            fillColor: Colors.white),
+                        controller: player2Controller,
+                      ),
+                    ),
+                  )
+                ]),
+                TableRow(children: <Widget>[
+                  Container(),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 15),
+                    child: Image(
+                      image: AssetImage('assets/pawn_black.png'),
+                      height: 150,
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 15),
+                    child: Image(
+                      image: AssetImage('assets/pawn_white.png'),
+                      height: 150,
+                    ),
+                  ),
+                ])
+              ],
+            )),
       ),
     );
   }

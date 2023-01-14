@@ -61,6 +61,8 @@ flutter:
   assets:
     - assets/landing.jpeg
     - assets/background.jpeg
+    - assets/pawn_black.png
+    - assets/pawn_white.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
