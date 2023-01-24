@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class ChessBoard extends StatefulWidget {
   const ChessBoard({super.key});
@@ -12,16 +10,19 @@ class ChessBoard extends StatefulWidget {
 class _ChessBoardState extends State<ChessBoard> {
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: 8,
-      scrollDirection: Axis.vertical,
-      children: List.generate(64, (index) {
-        return Container(
-          key: Key(index.toString()),
-          height: 10,
-          color: Colors.black,
-        );
-      }),
-    );
+    return GridView.builder(
+        physics: NeverScrollableScrollPhysics(),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 8, childAspectRatio: 1),
+        itemCount: 64,
+        itemBuilder: (BuildContext ctx, int index) {
+          final row = index ~/ 8;
+          final col = index % 8;
+          return Container(
+            color: (row % 2 == 0)
+                ? (col % 2 == 0 ? Colors.black : Colors.white)
+                : (col % 2 == 1 ? Colors.black : Colors.white),
+          );
+        });
   }
 }

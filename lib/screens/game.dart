@@ -60,12 +60,10 @@ class _GameScreenState extends State<GameScreen> {
             centerTitle: true,
             automaticallyImplyLeading: false),
         body: Center(
-          child: Expanded(
-            child: Column(
-              children: const [
-                Expanded(child: ChessBoard()),
-              ],
-            ),
+          child: Column(
+            children: const [
+              Expanded(child: ChessBoard()),
+            ],
           ),
         ),
       ),
