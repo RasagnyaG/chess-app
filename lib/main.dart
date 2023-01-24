@@ -1,5 +1,4 @@
 import 'package:chess_app/screens/landing.dart';
-import 'package:chess_app/screens/players.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +11,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
         title: 'Chess App',
         home: Scaffold(
           body: LandingScreen(),
