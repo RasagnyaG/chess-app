@@ -1,5 +1,7 @@
 import 'package:chess_app/screens/game.dart';
+import 'package:chess_app/services/playerState.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 final player1Controller = TextEditingController();
 final player2Controller = TextEditingController();
@@ -41,11 +43,18 @@ class PlayersPage extends StatelessWidget {
                         child: const Text('BACK'),
                       ),
                       ElevatedButton(
-                        onPressed: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const GameScreen(),
-                            )),
+                        onPressed: () {
+                          if (player1Controller.text != '' &&
+                              player2Controller.text != '') {
+                            context.read<PlayerState>().setPlayers(
+                                player1Controller.text, player2Controller.text);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const GameScreen(),
+                                ));
+                          }
+                        },
                         style: ButtonStyle(
                             backgroundColor:
                                 MaterialStateProperty.all(Colors.green[400])),

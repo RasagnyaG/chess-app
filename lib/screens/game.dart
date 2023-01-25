@@ -1,7 +1,9 @@
+import 'package:chess_app/services/playerState.dart';
 import 'package:chess_app/widgets/chessBoard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:provider/provider.dart';
 
 class GameScreen extends StatefulWidget {
   const GameScreen({super.key});
@@ -13,6 +15,8 @@ class GameScreen extends StatefulWidget {
 class _GameScreenState extends State<GameScreen> {
   @override
   Widget build(BuildContext context) {
+    String player1 = context.read<PlayerState>().player1;
+    String player2 = context.read<PlayerState>().player2;
     return Container(
       decoration: const BoxDecoration(
           image: DecorationImage(
@@ -61,8 +65,36 @@ class _GameScreenState extends State<GameScreen> {
             automaticallyImplyLeading: false),
         body: Center(
           child: Column(
-            children: const [
-              Expanded(child: ChessBoard()),
+            children: [
+              const ChessBoard(),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: <
+                  Widget>[
+                Column(
+                  children: <Widget>[
+                    Text(
+                      player1,
+                      style: const TextStyle(color: Colors.white, fontSize: 30),
+                    ),
+                    const Image(
+                      image: AssetImage('assets/pawn_black.png'),
+                      height: 100,
+                    )
+                  ],
+                ),
+                Column(
+                  children: <Widget>[
+                    Text(
+                      player2,
+                      style: const TextStyle(color: Colors.white, fontSize: 30),
+                    ),
+                    const Image(
+                      image: AssetImage('assets/pawn_white.png'),
+                      height: 100,
+                    )
+                  ],
+                )
+              ]),
+              SizedBox(height: 50)
             ],
           ),
         ),

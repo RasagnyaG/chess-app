@@ -1,8 +1,13 @@
 import 'package:chess_app/screens/landing.dart';
+import 'package:chess_app/services/playerState.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider<PlayerState>(
+    child: const MyApp(),
+    create: (_) => PlayerState(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
