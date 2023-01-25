@@ -1,8 +1,7 @@
-class Bishop {
-  int x;
-  int y;
+import 'package:chess_app/services/piece.dart';
+class Bishop extends Piece {
 
-  Bishop(this.x, this.y);
+  Bishop(super.x, super.y, super.type, super.side);
 
   List<List<int>> possibleMoves() {
     List<List<int>> moves = [];
@@ -14,10 +13,5 @@ class Bishop {
       n++;
     }
     return moves;
-  }
-
-  void movePiece(int newX, int newY) {
-    x = newX;
-    y = newY;
   }
 }
