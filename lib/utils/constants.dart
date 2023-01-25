@@ -1,2 +1,2 @@
-String WHITE = "WHITE";
-String BLACK = "BLACK";
+String white = "WHITE";
+String black = "BLACK";
