@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   http: ^0.13.5
   provider: ^6.0.5
+  flutter_chess_board: ^1.0.1
 
 dev_dependencies:
   flutter_test:

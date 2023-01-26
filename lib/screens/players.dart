@@ -53,17 +53,56 @@ class _PlayersPageState extends State<PlayersPage> {
                               player2Controller.text != '') {
                             context.read<PlayerState>().setPlayers(
                                 player1Controller.text, player2Controller.text);
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const GameScreen(),
-                                ));
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return IntrinsicHeight(
+                                    child: AlertDialog(
+                                      title: const Text(
+                                        "Choose A Game",
+                                        style: TextStyle(
+                                            fontSize: 30,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      content: Column(
+                                        children: <Widget>[
+                                          ElevatedButton(
+                                              onPressed: () {
+                                                context
+                                                    .read<PlayerState>()
+                                                    .setGame("CHESS");
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          const GameScreen(),
+                                                    ));
+                                              },
+                                              child: Text('CHESS')),
+                                          ElevatedButton(
+                                              onPressed: () {
+                                                context
+                                                    .read<PlayerState>()
+                                                    .setGame("TIC TAC TOE");
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          const GameScreen(),
+                                                    ));
+                                              },
+                                              child: Text('TIC TAC TOE'))
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                });
                           }
                         },
                         style: ButtonStyle(
                             backgroundColor:
                                 MaterialStateProperty.all(Colors.green[400])),
-                        child: const Text('START'),
+                        child: const Text('CHOOSE'),
                       ),
                     ],
                   ),

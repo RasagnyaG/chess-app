@@ -1,5 +1,6 @@
 import 'package:chess_app/services/playerState.dart';
 import 'package:chess_app/widgets/chessBoard.dart';
+import 'package:chess_app/widgets/ttt.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,6 +16,7 @@ class _GameScreenState extends State<GameScreen> {
   Widget build(BuildContext context) {
     String player1 = context.read<PlayerState>().player1;
     String player2 = context.read<PlayerState>().player2;
+    String gameName = context.read<PlayerState>().game;
     return Container(
       decoration: const BoxDecoration(
           image: DecorationImage(
@@ -26,9 +28,9 @@ class _GameScreenState extends State<GameScreen> {
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                const Text(
-                  'CHESS FROM CFI',
-                  style: TextStyle(
+                Text(
+                  '$gameName FROM CFI',
+                  style: const TextStyle(
                       fontStyle: FontStyle.italic,
                       fontWeight: FontWeight.bold,
                       fontSize: 30),
@@ -64,7 +66,7 @@ class _GameScreenState extends State<GameScreen> {
         body: Center(
           child: Column(
             children: [
-              const ChessBoard(),
+              gameName == 'CHESS' ? const Board() : const TTT(),
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: <
                   Widget>[
                 Column(
@@ -92,7 +94,7 @@ class _GameScreenState extends State<GameScreen> {
                   ],
                 )
               ]),
-              SizedBox(height: 50)
+              const SizedBox(height: 50)
             ],
           ),
         ),
