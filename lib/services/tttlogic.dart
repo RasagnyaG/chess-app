@@ -5,35 +5,35 @@ class Player {
 }
 
 class Game {
-  static const boxCount = 9; // we will creare a board of 3*3 blocks;
+  static const boxCount = 9;
   static const blocSize = 10.0;
 
-  //Creating the empty board
   List<String>? board;
 
   static List<String>? gameBoardGenerate() =>
       List.generate(boxCount, (index) => Player.empty);
 
-  //now we need to build the winner check algorithm
-  //for this we need first to declare a scoreboard in our main file
   bool winnerCheck(
-      String player, int index, List<int> scoreboard, int gridSize) {
-    //first let's declare the row   and col
+      String player, int index, List<List<String>> scoreboard, int gridSize) {
     int row = index ~/ 3;
     int col = index % 3;
-    int score = player == "X" ? 1 : -1;
+    scoreboard[row][col] = player;
 
-    scoreboard[row] += score;
-    scoreboard[gridSize + col] += score;
-    if (row == col) scoreboard[2 * gridSize] += score;
-    if (gridSize - 1 - col == row) scoreboard[2 * gridSize + 1] += score;
-
-    //checking if we have 3 or -3 in the score board
-    if (scoreboard.contains(3) || scoreboard.contains(-3)) {
+    if (scoreboard[row][0] == scoreboard[row][1] &&
+        scoreboard[row][1] == scoreboard[row][2]) {
       return true;
     }
+    if (scoreboard[0][col] == scoreboard[1][col] &&
+        scoreboard[1][col] == scoreboard[2][col]) {
+      return true;
+    }
+    if (row == col) {
+      if (scoreboard[1][1] == scoreboard[2][2] &&
+          scoreboard[0][0] == scoreboard[2][2]) {
+        return true;
+      }
+    }
 
-    //by default it will return false
     return false;
   }
 }
