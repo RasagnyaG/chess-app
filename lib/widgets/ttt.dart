@@ -83,13 +83,17 @@ class _TTTState extends State<TTT> {
           height: 5.0,
         ),
         SizedBox(
-            width: 30,
+            width: 80,
             height: 30,
-            child: result == ""
-                ? null
-                : Image.asset((result == "X")
-                    ? "assets/pawn_white.png"
-                    : "assets/pawn_black.png")),
+            child: Row(children: [
+              Container(child: result == "" ? null : const Text('Winner is ')),
+              Container(
+                  child: result == ""
+                      ? null
+                      : Image.asset((result == "X")
+                          ? "assets/pawn_white.png"
+                          : "assets/pawn_black.png")),
+            ])),
         ElevatedButton.icon(
           onPressed: () {
             setState(() {
