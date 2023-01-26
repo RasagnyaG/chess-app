@@ -19,7 +19,7 @@ class LandingScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               const Text(
-                'CHESS FROM CFI',
+                'APP FROM CFI',
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

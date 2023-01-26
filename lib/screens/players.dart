@@ -29,7 +29,7 @@ class _PlayersPageState extends State<PlayersPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 const Text(
-                  'CHESS FROM CFI',
+                  'APP FROM CFI',
                   style: TextStyle(
                       fontStyle: FontStyle.italic,
                       fontWeight: FontWeight.bold,
@@ -78,7 +78,7 @@ class _PlayersPageState extends State<PlayersPage> {
                                                           const GameScreen(),
                                                     ));
                                               },
-                                              child: Text('CHESS')),
+                                              child: const Text('CHESS')),
                                           ElevatedButton(
                                               onPressed: () {
                                                 context
@@ -91,7 +91,7 @@ class _PlayersPageState extends State<PlayersPage> {
                                                           const GameScreen(),
                                                     ));
                                               },
-                                              child: Text('TIC TAC TOE'))
+                                              child: const Text('TIC TAC TOE'))
                                         ],
                                       ),
                                     ),

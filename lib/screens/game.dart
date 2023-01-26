@@ -24,7 +24,7 @@ class _GameScreenState extends State<GameScreen> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-            toolbarHeight: 180,
+            toolbarHeight: 150,
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
@@ -46,13 +46,6 @@ class _GameScreenState extends State<GameScreen> {
                             backgroundColor:
                                 MaterialStateProperty.all(Colors.red[400])),
                         child: const Text('GIVE UP'),
-                      ),
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.green[400])),
-                        child: const Text('UNDO'),
                       ),
                     ],
                   ),
@@ -77,7 +70,7 @@ class _GameScreenState extends State<GameScreen> {
                     ),
                     const Image(
                       image: AssetImage('assets/pawn_black.png'),
-                      height: 100,
+                      height: 50,
                     )
                   ],
                 ),
@@ -89,12 +82,11 @@ class _GameScreenState extends State<GameScreen> {
                     ),
                     const Image(
                       image: AssetImage('assets/pawn_white.png'),
-                      height: 100,
+                      height: 50,
                     )
                   ],
                 )
               ]),
-              const SizedBox(height: 50)
             ],
           ),
         ),
