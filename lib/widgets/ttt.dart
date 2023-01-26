@@ -115,7 +115,6 @@ class _TTTState extends State<TTT> {
                 ["", "", ""],
                 ["", "", ""]
               ];
-              ;
             });
           },
           icon: const Icon(Icons.replay),
