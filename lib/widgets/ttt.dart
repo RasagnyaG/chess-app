@@ -48,9 +48,9 @@ class _TTTState extends State<TTT> {
                                 lastTurn, index, scoreboard, 3);
 
                             if (gameOver) {
-                              result = "$lastTurn is the Winner";
+                              result = lastTurn;
                             } else if (!gameOver && turn == 9) {
-                              result = "It's a Draw!";
+                              result = "Draw";
                               gameOver = true;
                             }
                             if (lastTurn == "X") {
@@ -86,13 +86,16 @@ class _TTTState extends State<TTT> {
             width: 80,
             height: 30,
             child: Row(children: [
-              Container(child: result == "" ? null : const Text('Winner is ')),
               Container(
-                  child: result == ""
+                  child: result == "" || result == "Draw"
+                      ? null
+                      : const Text('Winner is ')),
+              Container(
+                  child: result == "" || result == "Draw"
                       ? null
                       : Image.asset((result == "X")
-                          ? "assets/pawn_white.png"
-                          : "assets/pawn_black.png")),
+                          ? "assets/pawn_black.png"
+                          : "assets/pawn_white.png")),
             ])),
         ElevatedButton.icon(
           onPressed: () {
