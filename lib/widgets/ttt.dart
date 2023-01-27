@@ -12,7 +12,11 @@ class _TTTState extends State<TTT> {
   String lastTurn = "X";
   bool gameOver = false;
   String result = "";
-  List<int> scoreboard = [0, 0, 0, 0, 0, 0, 0, 0];
+  List<List<String>> scoreboard = [
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""]
+  ];
   Game game = Game();
   int turn = 0;
   @override
@@ -106,7 +110,11 @@ class _TTTState extends State<TTT> {
               gameOver = false;
               turn = 0;
               result = "";
-              scoreboard = [0, 0, 0, 0, 0, 0, 0, 0];
+              scoreboard = [
+                ["", "", ""],
+                ["", "", ""],
+                ["", "", ""]
+              ];
             });
           },
           icon: const Icon(Icons.replay),
