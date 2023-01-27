@@ -1,3 +1,4 @@
+import 'package:chess_app/screens/landing.dart';
 import 'package:chess_app/services/playerState.dart';
 import 'package:chess_app/widgets/chessBoard.dart';
 import 'package:chess_app/widgets/ttt.dart';
@@ -41,7 +42,11 @@ class _GameScreenState extends State<GameScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       ElevatedButton(
-                        onPressed: () => Navigator.of(context).pop(),
+                        onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LandingScreen(),
+                            )),
                         style: ButtonStyle(
                             backgroundColor:
                                 MaterialStateProperty.all(Colors.red[400])),
@@ -56,39 +61,40 @@ class _GameScreenState extends State<GameScreen> {
             shadowColor: Colors.transparent,
             centerTitle: true,
             automaticallyImplyLeading: false),
-        body: Center(
-          child: Column(
-            children: [
-              gameName == 'CHESS' ? const Board() : const TTT(),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: <
-                  Widget>[
-                Column(
-                  children: <Widget>[
-                    Text(
-                      player1,
-                      style: const TextStyle(color: Colors.white, fontSize: 30),
-                    ),
-                    const Image(
-                      image: AssetImage('assets/pawn_black.png'),
-                      height: 50,
-                    )
-                  ],
-                ),
-                Column(
-                  children: <Widget>[
-                    Text(
-                      player2,
-                      style: const TextStyle(color: Colors.white, fontSize: 30),
-                    ),
-                    const Image(
-                      image: AssetImage('assets/pawn_white.png'),
-                      height: 50,
-                    )
-                  ],
-                )
-              ]),
-            ],
-          ),
+        body: Column(
+          children: [
+            gameName == 'CHESS' ? const Board() : const TTT(),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Column(
+                    children: <Widget>[
+                      Text(
+                        player1,
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 30),
+                      ),
+                      const Image(
+                        image: AssetImage('assets/pawn_black.png'),
+                        height: 50,
+                      )
+                    ],
+                  ),
+                  Column(
+                    children: <Widget>[
+                      Text(
+                        player2,
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 30),
+                      ),
+                      const Image(
+                        image: AssetImage('assets/pawn_white.png'),
+                        height: 50,
+                      )
+                    ],
+                  )
+                ]),
+          ],
         ),
       ),
     );

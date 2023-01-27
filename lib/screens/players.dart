@@ -56,44 +56,54 @@ class _PlayersPageState extends State<PlayersPage> {
                             showDialog(
                                 context: context,
                                 builder: (context) {
-                                  return IntrinsicHeight(
-                                    child: AlertDialog(
-                                      title: const Text(
-                                        "Choose A Game",
-                                        style: TextStyle(
-                                            fontSize: 30,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      content: Column(
-                                        children: <Widget>[
-                                          ElevatedButton(
-                                              onPressed: () {
-                                                context
-                                                    .read<PlayerState>()
-                                                    .setGame("CHESS");
-                                                Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          const GameScreen(),
-                                                    ));
-                                              },
-                                              child: const Text('CHESS')),
-                                          ElevatedButton(
-                                              onPressed: () {
-                                                context
-                                                    .read<PlayerState>()
-                                                    .setGame("TIC TAC TOE");
-                                                Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          const GameScreen(),
-                                                    ));
-                                              },
-                                              child: const Text('TIC TAC TOE'))
-                                        ],
-                                      ),
+                                  return AlertDialog(
+                                    title: const Text(
+                                      "Choose A Game",
+                                      style: TextStyle(
+                                          fontSize: 30,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    content: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: <Widget>[
+                                        ElevatedButton(
+                                            style: ElevatedButton.styleFrom(
+                                              minimumSize:
+                                                  const Size.fromHeight(
+                                                      40), // NEW
+                                            ),
+                                            onPressed: () {
+                                              context
+                                                  .read<PlayerState>()
+                                                  .setGame("CHESS");
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const GameScreen(),
+                                                  ));
+                                            },
+                                            child: const Text('CHESS')),
+                                        ElevatedButton(
+                                            style: ElevatedButton.styleFrom(
+                                              minimumSize:
+                                                  const Size.fromHeight(
+                                                      40), // NEW
+                                            ),
+                                            onPressed: () {
+                                              context
+                                                  .read<PlayerState>()
+                                                  .setGame("TIC TAC TOE");
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const GameScreen(),
+                                                  ));
+                                            },
+                                            child: const Text('TIC TAC TOE'))
+                                      ],
                                     ),
                                   );
                                 });
@@ -181,14 +191,14 @@ class _PlayersPageState extends State<PlayersPage> {
                   const Padding(
                     padding: EdgeInsets.only(top: 15),
                     child: Image(
-                      image: AssetImage('assets/pawn_black.png'),
+                      image: AssetImage('assets/pawn_white.png'),
                       height: 150,
                     ),
                   ),
                   const Padding(
                     padding: EdgeInsets.only(top: 15),
                     child: Image(
-                      image: AssetImage('assets/pawn_white.png'),
+                      image: AssetImage('assets/pawn_black.png'),
                       height: 150,
                     ),
                   ),

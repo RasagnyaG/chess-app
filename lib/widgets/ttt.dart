@@ -83,7 +83,7 @@ class _TTTState extends State<TTT> {
           height: 5.0,
         ),
         SizedBox(
-            width: 80,
+            width: 90,
             height: 30,
             child: Row(children: [
               Container(
